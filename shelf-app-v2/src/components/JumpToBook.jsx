@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-
-import { API } from "../api.js";
-import { useFetch } from "../hooks/useFetch.js";
+import { BookContext } from "../context/BookProvider.jsx";
+import { useContext } from "react";
 
 function JumpToBook() {
+  const { data: books = [] } = useContext(BookContext);
+
   const [q, setQ] = useState("");
   const [notFound, setNotFound] = useState(false);
   const navigate = useNavigate();
-  const { data: books } = useFetch(API, []);
 
   function handleSubmit(event) {
     event.preventDefault();

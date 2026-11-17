@@ -1,17 +1,15 @@
-import { API } from "../api.js";
-import { useFetch } from "../hooks/useFetch.js";
 import Panel from "./Panel.jsx";
 import BookCard from "./BookCard.jsx";
 import ShelfBody from "./ShelfBody.jsx";
+import { BookContext } from "../context/BookProvider.jsx";
+import { useContext } from "react";
 
 function StatusList({ status, title }) {
+
   const {
     data: books,
     setData: setBooks,
-    loading,
-    error,
-    retry,
-  } = useFetch(API, []);
+    loading, error, retry } = useContext(BookContext)
 
   function changeStatus(id, next) {
     setBooks(

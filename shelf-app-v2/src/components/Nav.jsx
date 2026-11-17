@@ -6,7 +6,7 @@ function navClass({ isActive }) {
   return isActive ? "nav-link nav-on" : "nav-link";
 }
 
-function Nav() {
+function Nav({ books }) {
   return (
     <nav className="nav">
       <NavLink end to="/" className={navClass}>
@@ -27,7 +27,7 @@ function Nav() {
       <NavLink to="/about" className={navClass}>
         About
       </NavLink>
-      <JumpToBook />
+      <JumpToBook books={books} />
     </nav>
   );
 }

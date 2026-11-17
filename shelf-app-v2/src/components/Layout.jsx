@@ -3,10 +3,10 @@ import { Outlet } from "react-router";
 import Nav from "./Nav.jsx";
 import Footer from "./Footer.jsx";
 
-function Layout() {
+function Layout({ books }) {
   return (
     <div className="app">
-      <Nav />
+      <Nav books={books} />
       <main>
         <Outlet />
       </main>

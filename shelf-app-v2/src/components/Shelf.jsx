@@ -13,12 +13,12 @@ import ShelfBody from "./ShelfBody.jsx";
 
 function Shelf() {
   const {
-    data: books,
+    data: books = [],
     setData: setBooks,
     loading,
     error,
     retry,
-  } = useFetch(API, []);
+  } = useContext(BookContext);
 
   const [hideFinished, setHideFinished] = useState(false);
   const [query, setQuery] = useState("");
